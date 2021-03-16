@@ -8,15 +8,13 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
 import Info from "../components/info.vue";
 
-@Options({
+export default {
   components: {
     Info
   }
-})
-export default class Home extends Vue {}
+};
 </script>
 
 <style scoped lang="scss">

@@ -12,15 +12,28 @@
   padding: 0;
 }
 
+h2 {
+  padding: 15px 0px;
+}
+
+p {
+  padding: 15px 0px;
+  text-align: justify;
+  line-height: 1.3;
+}
+
+em {
+  font-weight: bold;
+  color: #ff8236;
+}
+
 li {
   list-style: none;
 }
 
-p {
-  line-height: 1.3;
-}
-
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-align: center;
 }
 
