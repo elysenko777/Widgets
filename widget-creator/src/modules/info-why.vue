@@ -30,7 +30,7 @@ export default {
     const infoWhyBlock = widgetMeaning
       .map(item => {
         return `<li class="info-why__item" >
-                <img class="info-why__icon" src="${item.icon}" />
+                <img class="info-why__icon" src="/images/${item.icon}" />
                 <p class="info-why__text">${item.text}</p>
             </li>`;
       })

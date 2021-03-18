@@ -1,5 +1,21 @@
-<template>
-  <div class="result">
-    <h1>This is an about page</h1>
+<template lang="">
+  <div class="container">
+    <WidgetList />
   </div>
 </template>
+
+<script>
+import WidgetList from "../components/widget-list.vue";
+export default {
+  components: {
+    WidgetList
+  }
+};
+</script>
+
+<style lang="scss">
+.container {
+  max-width: 960px;
+  margin: 15px auto;
+}
+</style>
