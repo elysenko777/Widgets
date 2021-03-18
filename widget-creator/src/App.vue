@@ -25,11 +25,10 @@ export default {
 }
 
 h2 {
-  padding: 15px 0px;
+  padding: 30px 0px 15px;
 }
 
 p {
-  padding: 15px 0px;
   text-align: justify;
   line-height: 1.3;
 }
@@ -53,5 +52,15 @@ h3 {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   font-size: 1.125rem;
   color: #2c3e50;
+}
+
+@media screen and (max-width: 480px) {
+  p {
+    text-align: left;
+    font-size: smaller;
+  }
+  h2 {
+    font-size: larger;
+  }
 }
 </style>

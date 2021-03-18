@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import WidgetList from "../components/widget-list.vue";
+import WidgetList from "../components/constructor/widget-list.vue";
 export default {
   components: {
     WidgetList
@@ -17,5 +17,6 @@ export default {
 .container {
   max-width: 960px;
   margin: 15px auto;
+  padding: 20px 16px 50px;
 }
 </style>

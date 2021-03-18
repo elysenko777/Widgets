@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import Info from "../components/info.vue";
+import Info from "../components/home/info.vue";
 
 export default {
   components: {

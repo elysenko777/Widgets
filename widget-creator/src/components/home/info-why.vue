@@ -6,27 +6,9 @@
 </template>
 
 <script>
+import widgetMeaning from "../../data/widgetMeaning";
 export default {
   setup() {
-    const widgetMeaning = [
-      {
-        text: "Удобство в использовании сайта",
-        icon: "easy-use.png"
-      },
-      {
-        text: "Работают на привлечение внимания зашедшего пользователя",
-        icon: "user-attention.png"
-      },
-      {
-        text:
-          "Способ увеличить конверсию и повысить уровень лояльности клиентов",
-        icon: "conversion-increase.png"
-      },
-      {
-        text: "Непрерывный поток продаж",
-        icon: "sales-flow.png"
-      }
-    ];
     const infoWhyBlock = widgetMeaning
       .map(item => {
         return `<li class="info-why__item" >
@@ -53,7 +35,7 @@ export default {
     display: flex;
     margin: 10px;
     padding: 20px;
-    max-width: 414px;
+    width: 414px;
     border: 3px solid #8891da;
     border-style: dashed;
     border-radius: 10px;
@@ -64,9 +46,27 @@ export default {
     height: fit-content;
   }
   &__text {
-    padding: 0px 0px 0px 15px;
+    padding-left: 15px;
     font-size: 18px;
     text-align: left;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .info-why {
+    &__item {
+      margin: 5px 0px;
+      padding: 10px;
+    }
+    &__text {
+      font-size: medium;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 998px) {
+  .info-why__item {
+    width: 40%;
   }
 }
 </style>

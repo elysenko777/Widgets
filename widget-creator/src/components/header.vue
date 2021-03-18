@@ -1,6 +1,6 @@
 <template lang="">
   <header class="header">
-    <div class="header-bg"></div>
+    <div class="header-bg"><div></div></div>
     <div class="header-content">
       <div class="header-container">
         <img src="../assets/logo.png" id="logo" alt="logo" title="" />
@@ -17,16 +17,18 @@
 .header {
   position: relative;
   width: 100%;
-  overflow: hidden;
   &-bg {
-    width: 160%;
-    height: 453px;
-    background: {
-      image: url("../assets/head.png");
-      position: center;
-      repeat: no-repeat;
+    overflow: hidden;
+    div {
+      width: 160%;
+      height: 453px;
+      background: {
+        image: url("../assets/head.png");
+        position: center;
+        repeat: no-repeat;
+      }
+      margin-left: -30%;
     }
-    margin-left: -30%;
   }
   &-content {
     position: absolute;
@@ -53,6 +55,32 @@
       text-decoration: none;
       &.router-link-exact-active {
         color: #ffb465;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #nav {
+    font-size: medium;
+  }
+}
+@media screen and (max-width: 580px) {
+  .header {
+    &-container {
+      flex-direction: column;
+      height: 455px;
+    }
+    #nav {
+      color: #2c3e50;
+      align-self: flex-start;
+      a {
+        font-weight: bold;
+        color: #2c3e50;
+        text-decoration: none;
+        &.router-link-exact-active {
+          color: #ffb465;
+        }
       }
     }
   }

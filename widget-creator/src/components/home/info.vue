@@ -1,5 +1,5 @@
 <template>
-  <div class="info">
+  <div class="info" v-once>
     <div class="info-container">
       <InfoWhat />
       <InfoWhy />
@@ -10,10 +10,10 @@
 </template>
 
 <script lang="ts">
-import InfoWhat from "../modules/info-what.vue";
-import InfoWhy from "../modules/info-why.vue";
-import InfoFunctions from "../modules/info-what-to-do.vue";
-import Conclusion from "../modules/conclusion.vue";
+import InfoWhat from "./info-what.vue";
+import InfoWhy from "./info-why.vue";
+import InfoFunctions from "./info-what-to-do.vue";
+import Conclusion from "./conclusion.vue";
 
 export default {
   components: {
