@@ -6,7 +6,7 @@
         <img src="../assets/logo.png" id="logo" alt="logo" title="" />
         <div id="nav" class="nav">
           <router-link to="/">Главная</router-link> |
-          <router-link to="/creator">Конструктор</router-link>
+          <router-link to="/widgets">Виджеты</router-link>
         </div>
       </div>
     </div>

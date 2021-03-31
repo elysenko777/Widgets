@@ -2,6 +2,7 @@ import { WidgetInfoItem } from "../models/index";
 
 const widgetList: WidgetInfoItem[] = [
   {
+    id: 1,
     icon: "countdown.png",
     title: "countdown",
     description: `С помощью этого виджета, 
@@ -10,14 +11,17 @@ const widgetList: WidgetInfoItem[] = [
                 свой отсчет времени до любого важного события на вашем сайте.`
   },
   {
+    id: 2,
     icon: "popup.png",
     title: "popup",
-    description: `Всплывающее окно, которое появляется во время посещения страницы. 
-                Используйте для рекламы услуг и продуктов компании.`
+    description: `С помощью специальных предложений и всплывающих окон распродаж 
+      привлекайте больше внимания к своим предложениям и увеличивайте доход. 
+      Используйте для рекламы услуг и продуктов компании.`
   },
   {
+    id: 3,
     icon: "sticky-popup.png",
-    title: "sticky popup redirect",
+    title: "sticky-popup",
     description: `Статический, выезжающий popup, который находится сбоку на странице все время. 
                 Используйте для показа рекламы, акций, и новостей. 
                 Менее навязчивый, нежели обычный попап.`
