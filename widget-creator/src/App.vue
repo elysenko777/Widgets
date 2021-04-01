@@ -24,6 +24,10 @@ export default {
   padding: 0;
 }
 
+body[overflow="hidden"] {
+  overflow: hidden;
+}
+
 h2 {
   padding: 30px 0px 15px;
 }

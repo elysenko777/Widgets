@@ -1,7 +1,7 @@
 $overlay-bg: rgba(17, 17, 17, 0.7);
 $popup-bg: #fff;
 $popup-title-color: #e54753;
-$popup-btn-first-color: #f49eab;
+$popup-btn-first-color: #e54753;
 $popup-btn-second-color: #fff;
 $popup-image: "/images/ice.png";
 
@@ -78,6 +78,43 @@ $popup-image: "/images/ice.png";
             repeat: no-repeat;
             size: cover;
             position: center;
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .popup {
+        max-width: 85%;
+        &-info {
+          display: flex;
+          flex-direction: column;
+          &__link {
+            position: relative;
+            left: 0;
+            bottom: auto;
+            margin: auto;
+            transform: none;
+          }
+          &__description {
+            max-width: 400px;
+            margin: auto;
+          }
+        }
+        &-container {
+            flex-direction: column-reverse;
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .popup {
+        max-width: 100%;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        transform: none;
+        &-info__description {
+            margin: 0;
         }
     }
 }

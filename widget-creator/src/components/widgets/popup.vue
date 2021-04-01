@@ -40,8 +40,14 @@ export default {
   setup: () => {
     const hasBanner = ref();
     hasBanner.value = store.state.demo.visible.popup;
+    const changeBodyOverflow = () => {
+      hasBanner.value
+        ? document.body.setAttribute("overflow", "hidden")
+        : document.body.removeAttribute("overflow");
+    };
     watchEffect(() => {
       hasBanner.value = store.state.demo.visible.popup;
+      changeBodyOverflow();
     });
     const closePopup = () => {
       store.dispatch("hideDemo", "popup");
