@@ -6,9 +6,7 @@
       href="https://ru.uefa.com/uefachampionsleague/fixtures-results/"
       target="_blank"
     >
-      <div class="countdown-close" @click.stop.prevent="closeBanner">
-        <span></span>
-      </div>
+      <CloseIcon @click.stop.prevent="closeBanner" />
       <div class="countdown-data">
         <div class="countdown-data__text">
           ⚽ До конца Лиги Чемпионов осталось:
@@ -23,13 +21,15 @@
 
 <script>
 import Timer from "./timer";
+import CloseIcon from "../../close-icon";
 import { ref, watchEffect } from "vue";
 import store from "../../../store/index";
 import setTime from "../../../services/setTime";
 
 export default {
   components: {
-    Timer
+    Timer,
+    CloseIcon
   },
   setup: () => {
     const hasBanner = ref();
@@ -65,36 +65,6 @@ export default {
   margin: 10px;
   background: #00004b;
   text-decoration: none;
-  &-close {
-    color: #fff;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    span {
-      position: relative;
-      width: 15px;
-      height: 15px;
-      display: block;
-      cursor: pointer;
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        display: block;
-        left: 50%;
-        width: 1px;
-        height: 15px;
-        background: #fff;
-      }
-      &::before {
-        transform: rotate(-45deg);
-      }
-      &::after {
-        transform: rotate(45deg);
-      }
-    }
-  }
   &-data {
     display: flex;
     align-items: center;

@@ -1,0 +1,83 @@
+$overlay-bg: rgba(17, 17, 17, 0.7);
+$popup-bg: #fff;
+$popup-title-color: #e54753;
+$popup-btn-first-color: #f49eab;
+$popup-btn-second-color: #fff;
+$popup-image: "/images/ice.png";
+
+.modal-popup {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+}
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: $overlay-bg;
+}
+.popup {
+    width: 650px;
+    height: 350px;
+    background: $popup-bg;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &-container {
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        & > div {
+            flex: 1;
+        }
+    }
+    &-info {
+        position: relative;
+        padding: 20px;
+        height: calc(100% - 40px);
+        text-align: center;
+        &__title {
+            font-weight: bold;
+            font-size: 2rem;
+            line-height: 1.2;
+            text-align: center;
+            color: $popup-title-color;
+        }
+        &__description {
+            padding: 20px 0px;
+            font-style: italic;
+            text-align: center;
+        }
+        &__link {
+            position: absolute;
+            bottom: 20px;
+            transform: translateX(-50%);
+            left: 50%;
+            padding: 10px;
+            color: $popup-btn-second-color;
+            background: $popup-btn-first-color;
+            border: 3px solid $popup-btn-first-color;
+            text-decoration: none;
+            font-weight: bold;
+            &:hover {
+                color:  $popup-btn-first-color;
+                background: $popup-btn-second-color;
+            }
+        }
+    }
+    &-image {
+        background: {
+            image: url($popup-image);
+            repeat: no-repeat;
+            size: cover;
+            position: center;
+        }
+    }
+}
