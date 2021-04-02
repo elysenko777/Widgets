@@ -1,6 +1,11 @@
 <template lang="">
   <ul class="widget-list">
-    <li class="widget-item" v-for="widget in widgetInfoList" :key="widget.id">
+    <li
+      class="widget-item"
+      v-for="widget in widgetInfoList"
+      :class="widgetItemClass(widget.title)"
+      :key="widget.id"
+    >
       <WidgetItem
         :icon="widget.icon"
         :title="widget.title"
@@ -19,8 +24,10 @@ export default {
     WidgetItem
   },
   setup() {
+    const widgetItemClass = title => `item-${title}`;
     return {
-      widgetInfoList
+      widgetInfoList,
+      widgetItemClass
     };
   }
 };
