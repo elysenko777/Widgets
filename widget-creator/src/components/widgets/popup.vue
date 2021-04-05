@@ -62,7 +62,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../style/demo-popup.scss";
+@import "../../style/widgets/demo-popup.scss";
 .close-icon {
   top: 20px;
   right: 11px;

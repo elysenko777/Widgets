@@ -46,5 +46,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../style/widget-item.scss";
+@import "../../style/widgets/widget-item.scss";
 </style>

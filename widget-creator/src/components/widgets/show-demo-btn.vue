@@ -56,5 +56,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../style/show-demo-btn.scss";
+@import "../../style/widgets/show-demo-btn.scss";
 </style>

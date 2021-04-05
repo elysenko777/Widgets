@@ -58,5 +58,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../../style/demo-countdown.scss";
+@import "../../../style/widgets/demo-countdown.scss";
 </style>

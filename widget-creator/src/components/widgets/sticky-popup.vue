@@ -63,5 +63,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../style/demo-sticky-popup.scss";
+@import "../../style/widgets/demo-sticky-popup.scss";
 </style>

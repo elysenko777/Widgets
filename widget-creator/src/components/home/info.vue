@@ -26,11 +26,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.info {
-  padding: 20px 16px 50px;
-  &-container {
-    max-width: 960px;
-    margin: 0 auto;
-  }
-}
+@import "../../style/home/info.scss";
 </style>

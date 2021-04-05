@@ -28,55 +28,5 @@ export default {
 </script>
 
 <style lang="scss">
-.info-what-to-do {
-  &__list {
-    position: relative;
-  }
-  &__item {
-    padding: 10px 0px;
-    display: flex;
-    align-items: center;
-  }
-  &__id {
-    font-size: xx-large;
-    font-weight: 700;
-    color: #8891da;
-  }
-  &__text {
-    padding-left: 20px;
-  }
-  &__container {
-    display: flex;
-    align-items: center;
-    img {
-      width: 40%;
-      margin-right: 20px;
-    }
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .info-what-to-do {
-    &__id {
-      font-size: large;
-    }
-    &__item {
-      padding: 7px 0px;
-      align-items: flex-start;
-    }
-    &__text {
-      padding-left: 10px;
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .info-what-to-do__container {
-    flex-direction: column;
-    img {
-      width: 280px;
-      margin-bottom: 20px;
-    }
-  }
-}
+@import "../../style/home/info-what-to-do.scss";
 </style>
