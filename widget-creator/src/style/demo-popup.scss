@@ -118,3 +118,21 @@ $popup-image: "/images/ice.png";
         }
     }
 }
+
+@media screen and (max-width: 900px) and (orientation: landscape) {
+    .popup {
+        max-height: 90%;
+        &-info {
+            &__title {
+                font-size: 1.5rem;
+            }
+            &__description {
+                padding: 10px 0px;
+                font-size: 1rem;
+            }
+            &__link {
+                padding: 5px 10px;
+            }
+        }
+    }
+}
