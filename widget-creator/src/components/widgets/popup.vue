@@ -48,7 +48,11 @@ export default {
       changeBodyOverflow();
     });
     const closePopup = () => {
-      store.dispatch("hideDemo", "popup");
+      const widgetInfo = {
+        name: "popup",
+        status: false
+      };
+      store.dispatch("toggleDemo", widgetInfo);
     };
     return {
       closePopup

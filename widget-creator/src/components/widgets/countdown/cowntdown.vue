@@ -39,7 +39,11 @@ export default {
       stoppedTimer.value = !store.state.demo.timer;
     };
     const closeBanner = () => {
-      store.dispatch("hideDemo", "countdown");
+      const widgetInfo = {
+        name: "countdown",
+        status: false
+      };
+      store.dispatch("toggleDemo", widgetInfo);
     };
     toggleTimer();
     watchEffect(() => {

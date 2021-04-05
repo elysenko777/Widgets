@@ -4,6 +4,7 @@
     @click="showBanner"
     v-if="hideDemo"
     title="Просмотр демо"
+    :animation="!btnClickStatus"
   >
     <svg class="icon icon-eye">
       <use xlink:href="#icon-eye">
@@ -28,16 +29,27 @@ export default {
     const Props = toRefs(props);
     const widgetTitle = Props.demoName.value;
     const hideDemo = ref();
+    const btnClickStatus = ref();
     hideDemo.value = !store.state.demo.visible[widgetTitle];
+    btnClickStatus.value = store.state.demo.btnClickStatus;
     const showBanner = () => {
-      store.dispatch("showDemo", widgetTitle);
+      const widgetInfo = {
+        name: widgetTitle,
+        status: true
+      };
+      store.dispatch("toggleDemo", widgetInfo);
+      if (!btnClickStatus.value) {
+        store.dispatch("stopAnimationDemoBtn");
+      }
     };
     watchEffect(() => {
       hideDemo.value = !store.state.demo.visible[widgetTitle];
+      btnClickStatus.value = store.state.demo.btnClickStatus;
     });
     return {
       hideDemo,
-      showBanner
+      showBanner,
+      btnClickStatus
     };
   }
 };

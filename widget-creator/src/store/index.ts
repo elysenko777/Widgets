@@ -5,31 +5,31 @@ import state from "./state";
 export default createStore({
   state,
   mutations: {
-    showDemo(state, widgetName) {
-      state.demo.visible[widgetName] = true;
-    },
-    hideDemo(state, widgetName) {
-      state.demo.visible[widgetName] = false;
+    toggleDemo(state, widgetInfo) {
+      state.demo.visible[widgetInfo.name] = widgetInfo.status;
     },
     setActualCountdown(state, time) {
       state.demo.countdown = time;
     },
     toggleTimer(state, status) {
       state.demo.timer = status;
+    },
+    stopAnimationDemoBtn(state) {
+      state.demo.btnClickStatus = true;
     }
   },
   actions: {
-    showDemo({ commit }, widgetName) {
-      commit("showDemo", widgetName);
-    },
-    hideDemo({ commit }, widgetName) {
-      commit("hideDemo", widgetName);
+    toggleDemo({ commit }, widgetInfo) {
+      commit("toggleDemo", widgetInfo);
     },
     setActualCountdown({ commit }, time) {
       commit("setActualCountdown", time);
     },
     toggleTimer({ commit }, status) {
       commit("toggleTimer", status);
+    },
+    stopAnimationDemoBtn({ commit }, status) {
+      commit("stopAnimationDemoBtn", status);
     }
   },
   modules: {},

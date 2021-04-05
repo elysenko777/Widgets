@@ -20,7 +20,7 @@ $animate-color: #ff6900;
 
 @for $i from 1 through 3 {
   .widget-item:nth-child(#{$i}) .widget-info__btn .icon {
-    animation-delay: 2s * $i;
+    animation-delay: 2s * ($i - 1);
   }
 }
 
@@ -30,6 +30,11 @@ $animate-color: #ff6900;
   width: 1.2em;
   height: 1.2em;
   cursor: pointer;
+  &[animation="true"] {
+    .icon {
+      animation: pulseDemoIcon 2s ease-in;
+    }
+  }
   &:hover .icon {
     transform: scale(1.2);
     fill: $animate-color;
@@ -41,5 +46,4 @@ $animate-color: #ff6900;
   height: 1.2em;
   stroke-width: 0;
   fill: $main-color;
-  animation: pulseDemoIcon 2s ease-in;
 }
