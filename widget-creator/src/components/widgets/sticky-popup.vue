@@ -1,16 +1,17 @@
 <template lang="">
-  <div class="sticky-popup" v-if="hasBanner">
+  <div class="sticky-popup" :visible="visible">
     <div class="sticky-popup-container">
-      <div class="sticky-popup-trigger">
+      <div class="sticky-popup-trigger" @click="toggleVisible">
         <span></span>
       </div>
       <div class="sticky-popup-content">
         <div class="sticky-popup-info">
-          <a href="" class="sticky-popup-info__title">
+          <a href="https://dodopizza.ru/" class="sticky-popup-info__title">
             20% скидки на любую большую пиццу на самовывоз!
           </a>
-          <p class="sticky-popup-info__promo">
-            <input readonly value="BIG20" ref="code" @click="copyCode" />
+          <p class="sticky-popup-info__promo" @click="copyCode">
+            <input readonly value="BIG20" ref="code" @blur="changeMessage" />
+            <span>{{ message }}</span>
           </p>
           <p class="sticky-popup-info__description">
             *Чтобы получить скидку, воспользуйтесь промокодом.<br />
@@ -24,25 +25,38 @@
 </template>
 
 <script>
-import { ref, watchEffect } from "vue";
-import store from "../../store/index";
+import { ref } from "vue";
 
 export default {
   setup: () => {
-    const hasBanner = ref();
-    hasBanner.value = store.state.demo.visible.sticky;
-    const code = ref(null);
+    const code = ref();
+    const message = ref();
+    const visible = ref();
+    const changeMessage = (status = "") => {
+      const defaultText = "copy code";
+      const succesText = "copied";
+      message.value = status === "succes" ? succesText : defaultText;
+    };
     const copyCode = () => {
       code.value.select();
       document.execCommand("copy");
+      changeMessage("succes");
     };
-    watchEffect(() => {
-      hasBanner.value = store.state.demo.visible.sticky;
-    });
+    const showStickyPopup = setTimeout(() => {
+      if (!visible.value) visible.value = "true";
+    }, 5000);
+    const toggleVisible = () => {
+      visible.value = visible.value ? "" : "true";
+      clearTimeout(showStickyPopup);
+    };
+    changeMessage();
     return {
-      hasBanner,
       code,
-      copyCode
+      copyCode,
+      message,
+      visible,
+      toggleVisible,
+      changeMessage
     };
   }
 };

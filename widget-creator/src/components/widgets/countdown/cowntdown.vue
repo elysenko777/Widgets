@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="countdown-demo" v-if="hasBanner">
+  <div class="countdown-demo">
     <a
       class="countdown"
       v-if="!stoppedTimer"
@@ -32,24 +32,21 @@ export default {
     CloseIcon
   },
   setup: () => {
-    const hasBanner = ref();
     const stoppedTimer = ref();
     let timer = 0;
-    const changeVisible = () => {
-      hasBanner.value = store.state.demo.visible.countdown;
+    const toggleTimer = () => {
       timer = setTime(timer);
       stoppedTimer.value = !store.state.demo.timer;
     };
     const closeBanner = () => {
       store.dispatch("hideDemo", "countdown");
     };
-    changeVisible();
+    toggleTimer();
     watchEffect(() => {
-      changeVisible();
+      toggleTimer();
     });
     return {
       closeBanner,
-      hasBanner,
       stoppedTimer
     };
   }

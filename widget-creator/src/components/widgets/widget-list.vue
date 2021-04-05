@@ -33,11 +33,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.widget-item {
-  margin: 10px 0px;
-  border: 3px solid #8891da;
-  border-style: dashed;
-  border-radius: 10px;
-}
-</style>
+<style lang="scss"></style>

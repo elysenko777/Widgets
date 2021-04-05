@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="modal-popup" v-if="hasBanner">
+  <div class="modal-popup">
     <div class="overlay" @click.stop.prevent="closePopup"></div>
     <div class="popup">
       <div class="popup-container">
@@ -30,30 +30,27 @@
 
 <script>
 import CloseIcon from "../close-icon";
+import { watchEffect } from "vue";
 import store from "../../store/index";
-import { ref, watchEffect } from "vue";
 
 export default {
   components: {
     CloseIcon
   },
   setup: () => {
-    const hasBanner = ref();
-    hasBanner.value = store.state.demo.visible.popup;
     const changeBodyOverflow = () => {
-      hasBanner.value
+      const hasBanner = store.state.demo.visible.popup;
+      hasBanner
         ? document.body.setAttribute("overflow", "hidden")
         : document.body.removeAttribute("overflow");
     };
     watchEffect(() => {
-      hasBanner.value = store.state.demo.visible.popup;
       changeBodyOverflow();
     });
     const closePopup = () => {
       store.dispatch("hideDemo", "popup");
     };
     return {
-      hasBanner,
       closePopup
     };
   }

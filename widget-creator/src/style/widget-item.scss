@@ -1,3 +1,12 @@
+$main-color: #8891da;
+
+.widget-item {
+  margin: 10px 0px;
+  border: 3px solid $main-color;
+  border-style: dashed;
+  border-radius: 10px;
+}
+
 .widget-info {
     display: flex;
     padding: 15px 10px;
@@ -17,49 +26,20 @@
     &__top {
       display: flex;
       margin-bottom: 5px;
+      align-items: center;
     }
     &__title {
       display: inline;
       font-weight: bold;
       text-transform: uppercase;
-      margin-right: 20px;
+      margin-right: 15px;
       line-height: 1;
     }
-    &__btn {
-      display: inline-block;
-      position: relative;
-      width: 16px;
-      height: 16px;
-      cursor: pointer;
-      &:hover {
-        zoom: 1.2;
-        left: -2px;
-      }
-      &-list {
+    &__btn-list {
         display: inline-flex;
         position: relative;
         align-items: center;
         text-align: right;
-      }
-      &.btn {
-        &-show-demo {
-          position: absolute;
-          margin-right: 6px;
-          width: 26px;
-          background: {
-            image: url("/images/show-demo.png");
-            size: contain;
-            repeat: no-repeat;
-          }
-        }
-        &-add-widget {
-          background: {
-            image: url("/images/add-widget.png");
-            size: contain;
-            repeat: no-repeat;
-          }
-        }
-      }
     }
   }
   

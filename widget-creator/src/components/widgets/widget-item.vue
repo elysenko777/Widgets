@@ -6,32 +6,20 @@
         <div class="widget-info__top">
           <p class="widget-info__title">{{ title }}</p>
           <p class="widget-info__btn-list">
-            <span
-              class="widget-info__btn btn-show-demo"
-              @click="showBanner"
-              v-if="hideDemo"
-              title="Просмотр демо"
-            >
-            </span>
-            <span
-              class="widget-info__btn btn-add-widget"
-              title="Добавить"
-              v-if="doneAddingForm"
-            >
-            </span>
+            <ShowDemoBtn :demoName="widgetTitle" />
           </p>
         </div>
         <p class="widget-info__description">{{ description }}</p>
       </div>
     </div>
-    <WidgetDemo :demoName="title" />
+    <WidgetDemo :demoName="widgetTitle" />
   </div>
 </template>
 
 <script>
-import { toRefs, ref, watchEffect } from "vue";
+import { toRefs } from "vue";
 import WidgetDemo from "./demo";
-import store from "../../store/index";
+import ShowDemoBtn from "./show-demo-btn";
 
 export default {
   props: {
@@ -40,28 +28,18 @@ export default {
     icon: String
   },
   components: {
-    WidgetDemo
+    WidgetDemo,
+    ShowDemoBtn
   },
-  setup(props) {
-    const widgetProps = toRefs(props);
-    const icon = widgetProps.icon.value;
-    const title = widgetProps.title.value;
+  setup: props => {
+    const Props = toRefs(props);
+    const icon = Props.icon.value;
+    const title = Props.title.value;
     const widgetIcon = `/images/${icon}`;
     const widgetTitle = title.match("sticky") ? "sticky" : title;
-    const doneAddingForm = false;
-    const hideDemo = ref();
-    hideDemo.value = !store.state.demo.visible[widgetTitle];
-    const showBanner = () => {
-      store.dispatch("showDemo", widgetTitle);
-    };
-    watchEffect(() => {
-      hideDemo.value = !store.state.demo.visible[widgetTitle];
-    });
     return {
       widgetIcon,
-      showBanner,
-      doneAddingForm,
-      hideDemo
+      widgetTitle
     };
   }
 };
